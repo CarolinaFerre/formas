@@ -1,0 +1,68 @@
+package formas;
+
+//SUPERCLASE ABSTRACTA SHAPE
+
+public abstract class shape {
+private static int width;
+	public shape(int width) {
+		this.width=width;
+	}
+	public static int getWidth() {
+		return width;
+	}
+	
+	abstract void area();
+}
+
+//SUBCLASE SQUARE QUE HEREDA DE SHAPE
+public class square extends shape {
+
+static int areaapp1;
+static int width;
+	public square(int width) {
+		super(width);
+		this.width=width;
+	}
+
+	@Override
+	void area() {
+		areaapp1=width*width;
+		System.out.println("El resultado del area es= "+areaapp1);
+	}
+
+}
+
+//SUBCLASE CIRCLE QUE HEREDA DE SHAPE
+public class circle extends shape{
+static double PI;
+static double areaapp2;
+static int width;
+	public circle(int width,double PI) {
+		super(width);
+		this.width=width;
+		this.PI=PI;
+	}
+
+	@Override
+	void area() {
+		System.out.println("El número PI es = "+PI);
+		areaapp2=Math.round(PI*width*width);
+		System.out.println("El resultado del area es= "+areaapp2);
+		
+	}
+
+}
+
+//TEST DE LAS APPS
+
+	public static void main(String[] args) {
+		shape appgrafica1=new square(5);
+		shape appgrafica2=new circle(2,3.1416);
+		System.out.println("CÁLCULO DEL AREA DE LA PRUEBA DE APP GRÁFICA PRIMERA");
+		((square)appgrafica1).area();
+		System.out.println("CÁLCULO DEL AREA DE LA PRUEBA DE APP GRÁFICA SEGUNDA");
+		((circle)appgrafica2).area();
+	}
+
+}
+
